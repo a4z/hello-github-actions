@@ -12,4 +12,4 @@ jobs:
 #           MY_NAME: "a4z"          
       - name: explore 
         run: |
-          ls {ANDROID_SDK_ROOT}/*
+          ls ${ANDROID_SDK_ROOT}/*
