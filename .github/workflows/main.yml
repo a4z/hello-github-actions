@@ -6,12 +6,10 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
-        with:
-          MY_NAME: "a4z"
-          
+#       - uses: actions/checkout@v1
+#       - uses: ./action-a
+#         with:
+#           MY_NAME: "a4z"          
       - name: explore 
         run: |
-          echo "$ANDROID_ROOT"
-          ls "$ANDROID_ROOT"  
+          ls /usr/local/lib/android
