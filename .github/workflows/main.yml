@@ -14,4 +14,4 @@ jobs:
         run: |
           ls ${ANDROID_SDK_ROOT}/ndk
           echo "----------"
-          sort $(ls ${ANDROID_SDK_ROOT}/ndk) | head 
+          ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1
