@@ -16,4 +16,4 @@ jobs:
           echo "----------"
           ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1
           echo "----------"
-          ls ${ANDROID_SDK_ROOT}/ndk/$(${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1)
+          ls ${ANDROID_SDK_ROOT}/ndk/$(ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1)
