@@ -10,3 +10,8 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "a4z"
+          
+      - name: explore 
+        run: |
+          echo "$ANDROID_ROOT"
+          ls "$ANDROID_ROOT"  
