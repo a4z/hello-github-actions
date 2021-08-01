@@ -12,5 +12,6 @@ jobs:
 #           MY_NAME: "a4z"          
       - name: explore 
         run: |
-          ls ${ANDROID_SDK_ROOT}/*
-          sort $(ls ${ANDROID_SDK_ROOT}/ndk/) | head -1
+          ls ${ANDROID_SDK_ROOT}/ndk
+          echo "----------"
+          sort $(ls ${ANDROID_SDK_ROOT}/ndk) | head 
