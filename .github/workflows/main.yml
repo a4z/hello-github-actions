@@ -13,4 +13,4 @@ jobs:
       - name: explore 
         run: |
           ls ${ANDROID_SDK_ROOT}/*
-          sort ${ANDROID_SDK_ROOT}/ndk/ | head -1
+          sort $(ls ${ANDROID_SDK_ROOT}/ndk/) | head -1
