@@ -1,10 +1,10 @@
-name: A workflow for my Hello World file
+name: Explor action things
 on: push
 
 jobs:
   build:
     name: Hello world action
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
 #       - uses: actions/checkout@v1
 #       - uses: ./action-a
@@ -14,6 +14,12 @@ jobs:
         run: |
           ls ${ANDROID_SDK_ROOT}/ndk
           echo "----------"
+          ls ${ANDROID_SDK_ROOT}/ndk
+          echo "----------"
           ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1
           echo "----------"
           ls ${ANDROID_SDK_ROOT}/ndk/$(ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1)
+
+      - name: exploreMore
+        run: |
+          env | grep ANDROID
