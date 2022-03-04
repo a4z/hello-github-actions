@@ -23,3 +23,7 @@ jobs:
       - name: exploreMore
         run: |
           env | grep ANDROID
+
+      - name: haveTee
+        run: |
+          tree -d -L 3 ${ANDROID_SDK_ROOT}/
