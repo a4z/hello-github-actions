@@ -12,7 +12,7 @@ jobs:
 #           MY_NAME: "a4z"          
       - name: explore 
         run: |
-          ls ${ANDROID_SDK_ROOT}/ndk
+          ls ${ANDROID_SDK_ROOT}/
           echo "----------"
           ls ${ANDROID_SDK_ROOT}/ndk
           echo "----------"
