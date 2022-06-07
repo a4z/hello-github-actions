@@ -1,14 +1,6 @@
 name: Explor action things
 on: push
 
-name: create-packages
-on:
-  push:
-    branches:
-        - feature/*
-        - main
-        - p/ha1672/SWC-1500-AutoGen-Bazel-Files # todo, remove when not needed anymore
-
 jobs:
   build:
     strategy:
