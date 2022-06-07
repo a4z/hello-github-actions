@@ -1,29 +1,23 @@
 name: Explor action things
 on: push
 
+name: create-packages
+on:
+  push:
+    branches:
+        - feature/*
+        - main
+        - p/ha1672/SWC-1500-AutoGen-Bazel-Files # todo, remove when not needed anymore
+
 jobs:
   build:
-    name: Hello world action
-    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        os: [macos-12, ubuntu-20.04, windows-2019]
+
+    runs-on: ${{ matrix.os }}
     steps:
-#       - uses: actions/checkout@v1
-#       - uses: ./action-a
-#         with:
-#           MY_NAME: "a4z"          
-      - name: explore 
-        run: |
-          ls ${ANDROID_SDK_ROOT}/
-          echo "----------"
-          ls ${ANDROID_SDK_ROOT}/ndk
-          echo "----------"
-          ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1
-          echo "----------"
-          ls ${ANDROID_SDK_ROOT}/ndk/$(ls ${ANDROID_SDK_ROOT}/ndk -C1 | sort -r | head -1)
-
-      - name: exploreMore
-        run: |
-          env | grep ANDROID
-
-      - name: haveTee
-        run: |
-          tree -d -L 3 ${ANDROID_SDK_ROOT}/
+    - name: Install buildozer
+      run: go install github.com/bazelbuild/buildtools/buildozer@latest
+    - name: Run buildozer
+      run: buildozer --version
