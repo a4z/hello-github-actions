@@ -11,4 +11,8 @@ jobs:
     steps:
     - name: Check NDK
       run: ls /usr/local/lib/android/sdk/ndk/
+    - name: Check NDK content
+      run: ls /usr/local/lib/android/sdk/ndk/25.1.8937393
+
       
+
