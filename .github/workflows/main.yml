@@ -13,6 +13,8 @@ jobs:
       run: ls /usr/local/lib/android/sdk/ndk/
     - name: Check NDK content
       run: ls /usr/local/lib/android/sdk/ndk/25.1.8937393
+    - name: Find toolchain files
+      run: find /usr/local/lib/android/sdk/ndk/25.1.8937393 -name '*.cmake'
 
       
 
