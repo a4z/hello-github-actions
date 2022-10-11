@@ -1,20 +1,22 @@
-name: Explor action things
+name: Explore callable workflows
 on: push
 
 jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-20.04]
+        os: [ubuntu-20.04, ubuntu-22.04]
 
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Check NDK
-      run: ls /usr/local/lib/android/sdk/ndk/
-    - name: Check NDK content
-      run: ls /usr/local/lib/android/sdk/ndk/25.1.8937393
-    - name: Find toolchain files
-      run: find /usr/local/lib/android/sdk/ndk/25.1.8937393 -name '*.cmake'
+      build-pkg1:
+        uses: ./.github/workflows/buildpkg.yml
+        with:
+          pkg-name: first
 
-      
+      build-pkg2:
+        uses: ./.github/workflows/buildpkg.yml
+        with:
+          pkg-name: second
+
 
