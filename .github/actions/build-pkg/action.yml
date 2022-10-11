@@ -9,5 +9,5 @@ runs:
   using: "composite"
   steps:
     - name: Build ${{ inputs.pkg-name }}
-      run: ./scripts/hello.py ${{ inputs.pkg-name }}
-      shell: python
+      run: python3 ./scripts/hello.py ${{ inputs.pkg-name }}
+      shell: bash
