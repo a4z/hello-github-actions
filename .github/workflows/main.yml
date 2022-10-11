@@ -9,14 +9,12 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
-      build-pkg1:
-        uses: ./.github/workflows/buildpkg.yml
-        with:
-          pkg-name: first
+      uses: ./.github/workflows/buildpkg.yml
+      with:
+        pkg-name: first
 
-      build-pkg2:
-        uses: ./.github/workflows/buildpkg.yml
-        with:
-          pkg-name: second
+      uses: ./.github/workflows/buildpkg.yml
+      with:
+        pkg-name: second
 
 
