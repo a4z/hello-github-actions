@@ -10,10 +10,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/buildpkg.yml
+      - uses: ./.github/actions/buildpkg.yml
         with:
           pkg-name: first
-      - uses: ./.github/workflows/buildpkg.yml
+      - uses: ./.github/actions/buildpkg.yml
         with:
           pkg-name: second
 
