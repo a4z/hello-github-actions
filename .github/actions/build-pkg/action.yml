@@ -1,0 +1,12 @@
+name: Call a composit action
+description: 'Build a given package'
+inputs:
+  pkg-name:
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Build ${{ inputs.pkg-name }}
+      run: echo ${{ inputs.pkg-name }}
