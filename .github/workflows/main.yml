@@ -13,7 +13,7 @@ jobs:
 
       - name: Install something via apt
         if:  ${{ startsWith(matrix.os,'ubuntu') }}
-        run: apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+        run: sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
       - name: First
         uses: ./.github/actions/build-pkg
