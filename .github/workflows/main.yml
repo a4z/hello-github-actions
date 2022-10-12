@@ -10,10 +10,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/build-pkg
+
+      - name: First
+        uses: ./.github/actions/build-pkg
         with:
           pkg-name: first
-      - uses: ./.github/actions/build-pkg
+      - name: Second
+        uses: ./.github/actions/build-pkg
         if:  ${{ startsWith(matrix.os,'ubuntu') }}
         with:
           pkg-name: second
