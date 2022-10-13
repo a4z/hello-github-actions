@@ -12,5 +12,5 @@ runs:
       run: python3 ./scripts/hello.py ${{ inputs.pkg-name }}
       shell: bash
     - name: Access env
-      run: echo ${{ env.a_val }} / echo ${{ env.b_val }}
+      run: echo ${{ env.a_val }} / echo ${{ env.b_val }} / ${{ env[inputs.pkg-name] }}
       shell: bash

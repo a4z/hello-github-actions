@@ -18,11 +18,11 @@ jobs:
       - name: Export to env
         run: python3 mkenv.py
 
-      - name: First
+      - name: first
         uses: ./.github/actions/build-pkg
         with:
           pkg-name: first
-      - name: Second
+      - name: second
         uses: ./.github/actions/build-pkg
         if:  ${{ startsWith(matrix.os,'ubuntu') }}
         with:
