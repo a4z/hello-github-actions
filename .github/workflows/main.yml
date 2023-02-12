@@ -26,7 +26,7 @@ jobs:
         OS: Ubuntu
     - name: Another step
       run: |
-        cmake --preset {{ env.OS }}
+        cmake --preset ${{ env.OS }}
 
     # steps:
     # - name: Set and export environment variable
