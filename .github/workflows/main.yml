@@ -10,11 +10,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - name: Run command based on operating system
-      run: |
-        if [ "${{ matrix.os }}" == "windows-2022" ]; then
-          Write-Host "Running on Windows"
-        elif [ "${{ matrix.os }}" == "macOS-latest" ]; then
-          echo "Running on macOS"
-        elif [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
-          echo "Running on Ubuntu Linux"
-        fi
+      if: ${{ matrix.os == 'windows-latest' }}
+      run: powershell .\windows.ps1
+      env:
+        OS: Windows
+    - name: Run command based on operating system
+      if: ${{ matrix.os == 'macOS-latest' }}
+      run: bash ./macOS.sh
+      env:
+        OS: macOS
+    - name: Run command based on operating system
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: bash ./ubuntu.sh
+      env:
+        OS: Ubuntu
