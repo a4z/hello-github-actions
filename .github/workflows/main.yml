@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Run command based on operating system
       run: |
-        if [ "${{ matrix.os }}" == "windows-latest" ]; then
+        if [ "${{ matrix.os }}" == "windows-2022" ]; then
           Write-Host "Running on Windows"
         elif [ "${{ matrix.os }}" == "macOS-latest" ]; then
           echo "Running on macOS"
