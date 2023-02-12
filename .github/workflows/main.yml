@@ -13,20 +13,20 @@ jobs:
       if: ${{ matrix.os == 'windows-latest' }}
       run: Write-Host "Running on Windows"
       env:
-        OS: Windows
+        preset_name: Windows
     - name: Run command based on operating system
       if: ${{ matrix.os == 'macOS-latest' }}
       run: echo "Running on macOS"
       env:
-        OS: macOS
+        preset_name: macOS
     - name: Run command based on operating system
       if: ${{ matrix.os == 'ubuntu-latest' }}
       run: echo "Running on Linux"
       env:
-        OS: Ubuntu
+        preset_name: Ubuntu
     - name: Another step
       run: |
-        cmake --preset ${{ env.OS }}
+        cmake --preset ${{ env.preset_name }}
 
     # steps:
     # - name: Set and export environment variable
