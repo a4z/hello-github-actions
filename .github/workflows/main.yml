@@ -11,16 +11,19 @@ jobs:
     steps:
     - name: Run command based on operating system
       if: ${{ matrix.os == 'windows-latest' }}
-      run: powershell .\windows.ps1
+      run: Write-Host "Running on Windows"
       env:
         OS: Windows
     - name: Run command based on operating system
       if: ${{ matrix.os == 'macOS-latest' }}
-      run: bash ./macOS.sh
+      run: echo "Running on macOS"
       env:
         OS: macOS
     - name: Run command based on operating system
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: bash ./ubuntu.sh
+      run: echo "Running on Linux"
       env:
         OS: Ubuntu
+    - name: Another step
+      run: |
+        echo "Running on $env:OS"
