@@ -8,45 +8,68 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
     runs-on: ${{ matrix.os }}
-    # steps:
-    # - name: Run command based on operating system
-    #   if: ${{ matrix.os == 'windows-latest' }}
-    #   run: Write-Host "Running on Windows"
-    #   env:
-    #     OS: Windows
-    # - name: Run command based on operating system
-    #   if: ${{ matrix.os == 'macOS-latest' }}
-    #   run: echo "Running on macOS"
-    #   env:
-    #     OS: macOS
-    # - name: Run command based on operating system
-    #   if: ${{ matrix.os == 'ubuntu-latest' }}
-    #   run: echo "Running on Linux"
-    #   env:
-    #     OS: Ubuntu
-    # - name: Another step
-    #   run: |
-    #     echo "Running on $env:OS"
-
     steps:
-    - name: Set and export environment variable
+    - name: Run command based on operating system
       if: ${{ matrix.os == 'windows-latest' }}
-      run: |
-        $env:OS_NAME = "Windows"
-        Write-Output "##vso[task.setvariable variable=OS_NAME;]$env:OS_NAME"
-
-    - name: Set and export environment variable
+      run: Write-Host "Running on Windows"
+      env:
+        OS: Windows
+    - name: Run command based on operating system
       if: ${{ matrix.os == 'macOS-latest' }}
-      run: |
-        export OS_NAME="macOS"
-        echo "##vso[task.setvariable variable=OS_NAME;]$OS_NAME"
-
-    - name: Set and export environment variable
+      run: echo "Running on macOS"
+      env:
+        OS: macOS
+    - name: Run command based on operating system
       if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: echo "Running on Linux"
+      env:
+        OS: Ubuntu
+    - name: Another step
       run: |
-        export OS_NAME="Ubuntu"
-        echo "##vso[task.setvariable variable=OS_NAME;]$OS_NAME"
+        echo "Running on {{ env.OS }}"
 
-    - name: Print environment variable
-      run: |
-        echo "Running on $env:OS_NAME"
+    # steps:
+    # - name: Set and export environment variable
+    #   if: ${{ matrix.os == 'windows-latest' }}
+    #   run: |
+    #     $env:OS_NAME = "Windows"
+    #     Write-Output "##vso[task.setvariable variable=OS_NAME;]$env:OS_NAME"
+
+    # - name: Set and export environment variable
+    #   if: ${{ matrix.os == 'macOS-latest' }}
+    #   run: |
+    #     export OS_NAME="macOS"
+    #     echo "##vso[task.setvariable variable=OS_NAME;]$OS_NAME"
+
+    # - name: Set and export environment variable
+    #   if: ${{ matrix.os == 'ubuntu-latest' }}
+    #   run: |
+    #     export OS_NAME="Ubuntu"
+    #     echo "##vso[task.setvariable variable=OS_NAME;]$OS_NAME"
+
+    # - name: Print environment variable
+    #   run: |
+    #     echo "Running on $env:OS_NAME"
+
+
+    # steps:
+    # - name: Set environment variable
+    #   if: ${{ matrix.os == 'windows-latest' }}
+    #   run: |
+    #     echo "##vso[task.setvariable variable=preset_name;]Windows"
+
+    # - name: Set environment variable
+    #   if: ${{ matrix.os == 'macOS-latest' }}
+    #   run: |
+    #     echo "##vso[task.setvariable variable=preset_name;]macOS"
+
+    # - name: Set environment variable
+    #   if: ${{ matrix.os == 'ubuntu-latest' }}
+    #   run: |
+    #     echo "##vso[task.setvariable variable=preset_name;]Ubuntu"
+
+    # - name: Run cmake command
+    #   run: |
+    #     cmake --preset ${{ env.preset_name }}
+
+
