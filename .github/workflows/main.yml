@@ -3,28 +3,22 @@ name: Example Workflow
 on: [push]
 
 env:
-  matrix:
-    - os: ubuntu-18.04
-      package: a b c
-    - os: ubuntu-20.04
-      package: a c e
-    - os: macOS-12
-      package: c d f
+  matrix_file: matrix.txt
 
 jobs:
   build:
     name: Build
-    runs-on: ${{ env.matrix.os }}
+    runs-on: ${{ fromJson(file(env.matrix_file)).os }}
     env:
-      package: ${{ env.matrix.package }}
+      package: ${{ fromJson(file(env.matrix_file)).package }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Print environment information
         run: |
-          echo "Operating system: ${{ env.matrix.os }}"
-          echo "Package: ${{ env.matrix.package }}"
+          echo "Operating system: ${{ fromJson(file(env.matrix_file)).os }}"
+          echo "Package: ${{ fromJson(file(env.matrix_file)).package }}"
 
       - name: Build package
         run: |

@@ -1,0 +1,7 @@
+# matrix.txt
+- os: ubuntu-18.04
+  package: a b c
+- os: ubuntu-20.04
+  package: a c e
+- os: macOS-12
+  package: c d f
