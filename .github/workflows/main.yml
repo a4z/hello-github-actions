@@ -14,7 +14,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Generate steps file
-      run: ./generate.sh
+      run: |
+        chmod a+x ./generate.sh
+        ./generate.sh
 
     - name: Use generated steps
       run: cat steps.yml | sed 's/^/    /' >> $GITHUB_WORKFLOW
