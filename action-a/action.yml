@@ -1,17 +1,32 @@
-name: "Hello Actions"
-description: "Greet someone"
-author: "octocat@github.com"
+name: Example Workflow
 
-inputs:
-  MY_NAME:
-    description: "Who to greet"
-    required: true
-    default: "World"
+on: [push]
 
-runs:
-  using: "docker"
-  image: "Dockerfile"
+env:
+  matrix:
+    - os: ubuntu-18.04
+      package: a b c
+    - os: ubuntu-20.04
+      package: a c e
+    - os: macOS-12
+      package: c d f
 
-branding:
-  icon: "mic"
-  color: "purple"
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ env.matrix.os }}
+    env:
+      package: ${{ env.matrix.package }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print environment information
+        run: |
+          echo "Operating system: ${{ env.matrix.os }}"
+          echo "Package: ${{ env.matrix.package }}"
+
+      - name: Build package
+        run: |
+          # Add build command here, replacing '<package>' with '${{ env.package }}'
+          echo "Building package: ${{ env.package }}"
