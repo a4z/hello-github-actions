@@ -17,6 +17,8 @@ jobs:
       run: |
         chmod a+x ./generate.sh
         ./generate.sh
+        cat ./steps.yml
 
     - name: Use generated steps
-      run: cat steps.yml | sed 's/^/    /' >> $GITHUB_WORKFLOW
+      uses: ./steps.yml
+
