@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Install strong type
         run: |
-          brew install brew install a4z/cpp-taps/strong_type
+          brew install a4z/cpp-taps/strong_type
 
       - name: List brews
         run: |
