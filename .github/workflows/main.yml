@@ -8,19 +8,13 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: ${{ fromJson(file(env.matrix_file)).os }}
-    env:
-      package: ${{ fromJson(file(env.matrix_file)).package }}
+    runs-on: macos-13
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Print environment information
+      - name: Install strong type
         run: |
-          echo "Operating system: ${{ fromJson(file(env.matrix_file)).os }}"
-          echo "Package: ${{ fromJson(file(env.matrix_file)).package }}"
+          brew tap a4z/cpp-taps
+          brew install strong_type
 
-      - name: Build package
+      - name: List brews
         run: |
-          # Add build command here, replacing '<package>' with '${{ env.package }}'
-          echo "Building package: ${{ env.package }}"
+          brew list
