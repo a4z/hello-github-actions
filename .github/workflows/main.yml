@@ -6,8 +6,8 @@ env:
   matrix_file: matrix.txt
 
 jobs:
-  build:
-    name: Build
+  v1:
+    name: Install v1
     runs-on: macos-13
     steps:
       - name: Install strong type
@@ -17,4 +17,16 @@ jobs:
 
       - name: List brews
         run: |
-          brew list
+          brew info strong_type
+
+  v2:
+    name: Install v2
+    runs-on: macos-13
+    steps:
+      - name: Install strong type
+        run: |
+          brew install brew install a4z/cpp-taps/strong_type
+
+      - name: List brews
+        run: |
+          brew info strong_type
